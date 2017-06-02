@@ -19,7 +19,7 @@ module.exports = {
       'zone.js/dist/zone'
     ]
   },
-  devServer = {
+  devServer: {
     historyApiFallback: true,
     proxy: {
       '/api/*': 'http://localhost:3000'
@@ -82,8 +82,9 @@ module.exports = {
      * The angular CLI team implemented this quick regexp fix to get around compilation errors
      */
     new webpack.ContextReplacementPlugin(
-      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-      './'
+      /angular(\\|\/)core(\\|\/)@angular/,
+      path.join(rootDir, './src'),
+      {}
     )
   ]
 };
