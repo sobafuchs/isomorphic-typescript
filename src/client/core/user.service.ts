@@ -5,11 +5,13 @@ import { Injectable } from '@angular/core';
 import { ApiService } from 'client/core/api/api.service';
 
 // Internal Types
+import { User } from 'server/api/models';
 
 @Injectable()
 
 export class UserService {
-  user: any;
+  user: User;
+  isAdmin: boolean;
 
   constructor(
     private apiService: ApiService
@@ -20,6 +22,7 @@ export class UserService {
       .subscribe(
         data => {
           this.user = data.user;
+          this.isAdmin = !!this.user.roles.find(role => role === 'admin');
         },
         error => this.handleHttpError(error)
       );

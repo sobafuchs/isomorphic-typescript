@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'client/core/http.service';
 
 // Internal Types
+import { GetMeResponse } from 'server/api/auth/models';
 
 export class AuthApi {
   base = 'auth';
@@ -13,7 +14,7 @@ export class AuthApi {
     private API_ROOT: string,
     private http: HttpService) { }
 
-  getMe = (): Observable<any> => {
+  getMe = (): Observable<GetMeResponse> => {
     return this.http.get(`${ this.API_ROOT }/auth/me`);
   };
 }
