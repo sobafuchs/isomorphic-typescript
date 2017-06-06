@@ -1,5 +1,6 @@
 // External dependencies
 import * as express from 'express';
+import * as morgan from 'morgan';
 
 // Internal Dependencies
 import { api } from './api';
@@ -8,8 +9,9 @@ import { api } from './api';
 
 export const app = () => {
   const app = express();
-
-  app.use(`/api/v1`, api(di));
+  app.use(morgan('combined'));
+  
+  app.use(`/api/v1`, api());
   
   return app;
 };

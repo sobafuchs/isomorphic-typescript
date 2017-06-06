@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Internal Dependencies
+import { ApiService } from 'client/core/api/api.service';
 
 // Internal Types
 
@@ -11,9 +12,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
-    
+    this.apiService.users.getMe();
   }
 }
