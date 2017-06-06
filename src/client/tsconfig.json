@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["es6", "dom"],
+    "baseUrl": "../..",
+    "paths":{
+      "client/*": [
+        "src/client/*",
+        "*"
+      ],
+      "shared/*": [
+        "src/shared/*",
+        "*"
+      ],
+      "server/*": [
+        "src/server/*",
+        "*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "src/server"
+  ]
+}
