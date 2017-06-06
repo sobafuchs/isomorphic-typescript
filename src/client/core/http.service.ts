@@ -36,6 +36,5 @@ export class HttpService {
 }
 
 function extractData(response: Response) {
-  const body = response.json();
-  return response.json().data;
+  return response.json();
 }

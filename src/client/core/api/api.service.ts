@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 // Internal Dependencies
 import { HttpService } from 'client/core/http.service';
-import { UsersApi } from './users';
+import { AuthApi } from './auth';
 
 // Internal Types
 
@@ -17,6 +17,6 @@ export class ApiService {
     private http: HttpService
   ) {}
 
-  public users = new UsersApi(this.API_ROOT, this.http);
+  public auth = new AuthApi(this.API_ROOT, this.http);
 
 }
