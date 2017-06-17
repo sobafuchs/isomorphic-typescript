@@ -6,12 +6,13 @@ import { HttpModule } from '@angular/http';
 import { UserService } from './user.service';
 import { HttpService } from './http.service';
 import { ApiService } from './api/api.service';
+import { SearchService } from './search.service';
 
 // Internal Types
 
 @NgModule({
   imports: [HttpModule],
-  providers: [UserService, HttpService, ApiService]
+  providers: [UserService, HttpService, ApiService, SearchService]
 })
 
 export class CoreModule {}
