@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from 'client/core/api/api.service';
 
 // Internal Types
-import { User } from 'server/api/models';
+import { User } from 'server/api/auth/models';
 
 @Injectable()
 

@@ -3,7 +3,7 @@
 // Internal Dependencies
 
 // Internal Types
-import { User } from './models';
+import { User } from './auth/models';
 
 export const mockLoggedInUser = (): User => ({
   id: 'id123',

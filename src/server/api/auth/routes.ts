@@ -14,11 +14,7 @@ export const getMe = async (req: GetMeRequest, res: Response) => {
     const data: GetMeResponse = { user };
     return res.json(data);
   } catch (error) {
-    return res.status(500).json({
-      error,
-      stack: error.stack,
-      endpoint: `auth.getMe`
-    });
+    return res.status(500).json({ error });
   }
 }
 

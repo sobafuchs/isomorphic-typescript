@@ -1,16 +1,23 @@
 // External Dependencies
+import { Request } from 'express';
 
-// Internal Dependencies
-import { AuthenticatedRequest, User as GeneralUser } from '../models';
+export interface User {
+  id: string;
 
-// Internal Types
+  name: {
+    first: string;
+    last: string;
+  };
 
-export type AuthUser = GeneralUser;
+  email: string;
+  
+  roles: string[];
+}
 
-export interface GetMeRequest extends AuthenticatedRequest {
-
+export interface GetMeRequest extends Request {
+  user: User;
 }
 
 export interface GetMeResponse {
-  user: AuthUser;
+  user: User;
 }
