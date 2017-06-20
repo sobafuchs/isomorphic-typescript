@@ -10,10 +10,6 @@
     "removeComments": true,
     "baseUrl": "../../",
     "paths": {
-      "dependencies/*": [
-        "src/server/dependencies/*",
-        "*"
-      ],
       "shared/*": [
         "src/shared/*",
         "*"

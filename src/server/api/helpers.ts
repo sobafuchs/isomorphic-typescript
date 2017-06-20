@@ -3,8 +3,10 @@
 // Internal Dependencies
 
 // Internal Types
+import { User } from './auth/models';
 
-export const mockLoggedInUser = () => ({
+export const mockLoggedInUser = (): User => ({
+  id: 'id123',
   name: {
     first: 'Test',
     last: 'User'
