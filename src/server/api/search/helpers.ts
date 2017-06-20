@@ -3,8 +3,10 @@
 // Internal Dependencies
 
 // Internal Types
+import { User } from '../models';
+import { SearchRequestParams } from './models';
 
-export const findFromQuery = async ({ query, user }) => {
+export const findFromQuery = async ({ query, user }: { query: SearchRequestParams, user: User }) => {
   let {
     filters: {
       price: { gte, lte },
@@ -16,7 +18,7 @@ export const findFromQuery = async ({ query, user }) => {
   } = query;
   const { roles } = user;
 
-  adminSearch = adminSearch ? user.roles.find(role => role === 'admin') : false;
+  adminSearch = adminSearch ? user.roles.indexOf('admin') > -1 : false;
 
   return mockDbQuery({ gte, lte, neighborhoods, numGuests, adminSearch, pageNum });
 };
@@ -25,7 +27,7 @@ export const findFromQuery = async ({ query, user }) => {
  * Really hard to read mock db query function that (barely) mimics the complexity of
  * an actual search operation
  */
-function mockDbQuery(query) {
+function mockDbQuery(query: SearchRequestParams) {
   if (query.adminSearch) {
     return [
       { name: `Cheap Chelsea Venue 1`, visible: false },
