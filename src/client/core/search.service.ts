@@ -15,7 +15,7 @@ export class SearchState {
     neighborhoods?: string[];
   } = {};
 
-  numPage: number = 0;
+  pageNum: number = 0;
 
   adminSearch: boolean = false;
 

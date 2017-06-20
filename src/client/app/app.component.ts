@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     };
 
     this.searchState.adminSearch = false;
-    this.searchState.numPage = 2;
+    this.searchState.pageNum = 2;
 
     this.apiService.search.search({ searchParams: this.searchState })
       .subscribe(

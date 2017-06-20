@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { HttpService } from 'client/core/http.service';
 
 // Internal Types
+import { SearchRequestParams, SearchResponse } from 'server/api/search/models';
 
 export class SearchApi {
   base = 'auth';
@@ -13,7 +14,7 @@ export class SearchApi {
     private API_ROOT: string,
     private http: HttpService) { }
 
-  search = ({ searchParams }): Observable<any> => {
+  search = ({ searchParams }: { searchParams: SearchRequestParams }): Observable<SearchResponse> => {
     return this.http.get(`${ this.API_ROOT }/search`, { params: searchParams });
   };
 }
