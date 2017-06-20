@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 // Internal Dependencies
 import { HttpService } from 'client/core/http.service';
 import { AuthApi } from './auth';
+import { SearchApi } from './search';
 
 // Internal Types
 
@@ -18,5 +19,5 @@ export class ApiService {
   ) {}
 
   public auth = new AuthApi(this.API_ROOT, this.http);
-
+  public search = new SearchApi(this.API_ROOT, this.http);
 }
