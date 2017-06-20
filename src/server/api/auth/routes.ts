@@ -11,11 +11,7 @@ export const getMe = async (req, res) => {
 
     return res.json({ user });
   } catch (error) {
-    return res.status(500).json({
-      error,
-      stack: error.stack,
-      endpoint: `auth.getMe`
-    });
+    res.status(500).json({ error });
   }
 }
 
