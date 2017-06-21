@@ -7,6 +7,7 @@ import { SearchService, SearchState } from 'client/core/search.service';
 import { ApiService } from 'client/core/api/api.service';
 
 // Internal Types
+import { Venue } from 'server/api/search/models';
 
 @Component({
   selector: 'my-app',
@@ -15,7 +16,7 @@ import { ApiService } from 'client/core/api/api.service';
 
 export class AppComponent implements OnInit {
   searchState: SearchState;
-  venues: any[];
+  venues: Venue[];
 
   constructor(
     private userService: UserService,
@@ -64,7 +65,7 @@ export class AppComponent implements OnInit {
     this.apiService.search.search({ searchParams: this.searchState })
       .subscribe(
         data => {
-          this.venues = data.venues
+          this.venues = data.venues;
         },
         error => this.handleHttpError(error)
       )

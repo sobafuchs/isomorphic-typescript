@@ -27,7 +27,7 @@ export const findFromQuery = async ({ query, user }: { query: SearchRequestParam
  * Really hard to read mock db query function that (barely) mimics the complexity of
  * an actual search operation
  */
-function mockDbQuery(query: SearchRequestParams) {
+function mockDbQuery(query: { gte: number, lte: number, neighborhoods: string[], numGuests: number, adminSearch: boolean, pageNum: number }) {
   if (query.adminSearch) {
     return [
       { name: `Cheap Chelsea Venue 1`, visible: false },
