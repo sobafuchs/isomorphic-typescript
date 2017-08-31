@@ -4,7 +4,7 @@
 
 // Internal Types
 import { User } from '../models';
-import { SearchRequestParams } from './models';
+import { SearchRequestParams, Venue } from './models';
 
 export const findFromQuery = async ({ query, user }: { query: SearchRequestParams, user: User }) => {
   let {
@@ -30,9 +30,9 @@ export const findFromQuery = async ({ query, user }: { query: SearchRequestParam
 function mockDbQuery(query: { gte: number, lte: number, neighborhoods: string[], numGuests: number, adminSearch: boolean, pageNum: number }) {
   if (query.adminSearch) {
     return [
-      { name: `Cheap Chelsea Venue 1`, visible: false },
-      { name: `Expensive Tribeca Venue 1`, visible: true },
-      { name: `Expensive Bushwick Venue 4`, visible: false },
+      { name: `Cheap Chelsea Venue 1`, isVisible: false },
+      { name: `Expensive Tribeca Venue 1`, isVisible: true },
+      { name: `Expensive Bushwick Venue 4`, isVisible: false },
     ];
   }
 
@@ -44,27 +44,27 @@ function mockDbQuery(query: { gte: number, lte: number, neighborhoods: string[],
      */
     return query.lte && query.lte <= 50 ?
       [
-        { name: `Cheap Bushwick Venue 1` },
-        { name: `Cheap Bushwick Venue 2` },
-        { name: `Cheap Bushwick Venue 3` }
-      ].map(v => Object.assign(v, { isVisible: true })) :
+        { name: `Cheap Bushwick Venue 1`, isVisible: true },
+        { name: `Cheap Bushwick Venue 2`, isVisible: true },
+        { name: `Cheap Bushwick Venue 3`, isVisible: true }
+      ] :
       [
-        { name: `Expensive Bushwick Venue 1` },
-        { name: `Expensive Bushwick Venue 2` },
-        { name: `Expensive Bushwick Venue 3` }
-      ].map(v => Object.assign(v, { isVisible: true }));
+        { name: `Expensive Bushwick Venue 1`, isVisible: true },
+        { name: `Expensive Bushwick Venue 2`, isVisible: true },
+        { name: `Expensive Bushwick Venue 3`, isVisible: true }
+      ];
   }
 
   return query.pageNum === 0 ?
     [
-      { name: `Cheap Chelsea Venue 2` },
-      { name: `Expensive Chelsea Venue 1` },
-      { name: `Cheap Bushwick Venue 1` },
-      { name: `Cheap Bushwick Venue 2` }
-    ].map(v => Object.assign(v, { isVisible: true })) :
+      { name: `Cheap Chelsea Venue 2`, isVisible: true },
+      { name: `Expensive Chelsea Venue 1`, isVisible: true },
+      { name: `Cheap Bushwick Venue 1`, isVisible: true },
+      { name: `Cheap Bushwick Venue 2`, isVisible: true }
+    ] :
     [
-      { name: `Cheap Chelsea Venue 14` },
-      { name: `Cheap Bushwick Venue 36` },
-      { name: `Expensive Tribeca Venue 2` }
-    ].map(v => Object.assign(v, { isVisible: true }))
+      { name: `Cheap Chelsea Venue 14`, isVisible: true },
+      { name: `Cheap Bushwick Venue 36`, isVisible: true },
+      { name: `Expensive Tribeca Venue 2`, isVisible: true }
+    ];
 };
